@@ -1,5 +1,5 @@
 
-// HEADER CODE
+// SIGNLE HEADER CODE
 
 var htmlCode = `
 <div class=" h-100">
@@ -51,7 +51,7 @@ var newElement = document.createElement('div')
 newElement.innerHTML = htmlCode
 container.appendChild(newElement)
 
-// FOOTER CODE
+// SIGNLE FOOTER CODE
 
 var htmlCode = `
 <footer class="text-gray-600 body-font">
@@ -95,16 +95,16 @@ var htmlCode = `
         <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Contact</h2>
         <nav class="list-none mb-10 uppercase">
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Phone : +216 78 900 099</a>
+            <a class="text-gray-600 hover:text-gray-800">Phone : +00 000 000</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Phone : +216 78 900 100</a>
+            <a class="text-gray-600 hover:text-gray-800">Phone : +00 000 001</a>
           </li>
           <li>
             <a class="text-gray-600 hover:text-gray-800">Email : contact@gymzilla.com</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Street Barnoussa 7117, Le Kef, Tunisia</a>
+            <a class="text-gray-600 hover:text-gray-800">Address : Main Street, Anytown, Tunisia</a>
           </li>
         </nav>
       </div>
@@ -150,9 +150,14 @@ var htmlCode = `
             <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
           </svg>
         </a>
-      
       </span>
     </div>
+    <div class="font-regular relative block w-full bg-rare text-center font-medium uppercase p-4 text-base leading-5 text-white opacity-100">
+  <span class="credit">Powered By :
+  <a href="https://github.com/MoenesMannaii/"><i class="fas fa-exclamation mr-2"></i>
+    MOENES MANNAI &nbsp;<svg class="inline w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+     </span>
+</div>
   </div>
 </footer>
 `;
@@ -180,7 +185,6 @@ function search() {
     }
 }
 
-
 // ADD NAVBAR LINKS 
 
  var navbarLinks = [
@@ -203,17 +207,30 @@ for (var i = 0; i < navbarLinks.length; i++) {
   list.appendChild(li)
 }
 
+// CALCULATE BODY MASS INDEX
 
-function calculateBmi() {
-  var height = parseFloat(document.getElementById('height').value)
-  var weight = parseFloat(document.getElementById('weight').value)
+function calculateBmi(event) {
+  event.preventDefault(); // prevent form submission and page reload
+  
+  var height = parseFloat(document.getElementById('height').value);
+  var weight = parseFloat(document.getElementById('weight').value);
 
-  // this is how to calc bmi
-  var bmi = weight / ((height / 100) ** 2)
-   var resultdisplay = document.createElement('h1')
-   resultdisplay.textContent = `Your Body Mass Index is ${bmi.toFixed(2)}`
-   var result = document.querySelector('.resultBMI')
-   result.appendChild(resultdisplay)
+  var bmi = weight / ((height / 100) ** 2);
+  var resultDisplay = document.createElement('h1');
+  resultDisplay.textContent = `Your Body Mass Index is ${bmi.toFixed(2)}`;
 
-   
+  var result = document.querySelector('.resultBMI');
+  result.innerHTML = ''; 
+  result.appendChild(resultDisplay);
+
+  var image = document.createElement('img');
+  image.src = '/assets/images/Untitled.png';
+  image.classList.add('result-image')
+  result.appendChild(image);
+  
+  // reset the input fields
+  document.getElementById('age').value = '';
+  document.getElementById('height').value = '';
+  document.getElementById('weight').value = '';
+  
 }
