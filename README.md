@@ -2,6 +2,12 @@
 
 " I created this Website template for myself, but instead of burying it, I've shared it on GitHub as an open-source resource. Customize it to create your own unique Template. "
 
+
+## Live Demo
+
+- Click [here](https://gymzilla-fitness.netlify.app/) to view the live demo.
+
+
 ## License and Attribution
 
 The code in this repository is released under the [MIT] License, which grants you the freedom to use, modify, and distribute the template as your own. However, if you choose to use the site's design largely unmodified, kindly credit me as the original designer of the site.
